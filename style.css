@@ -1,0 +1,128 @@
+
+
+/* @font-face {
+    font-family: "Lexend Deca";
+    font-weight: 400;
+    src: url("https://fonts.google.com/specimen/Lexend+Deca");
+    
+}
+@font-face {
+    font-family: "Big Shoulders Display";
+    font-weight: 700;
+    src: url("https://fonts.google.com/specimen/Bid+Shoulders+Display");
+} */
+
+
+:root{
+    font-size: 15px;  /* make 1rem 15px */
+}
+html{
+    /* colour guide */
+    --bright-orange:hsl(31, 77%,52%);
+    --dark-cyan:hsl(184, 100%, 22%);
+    --very-dark-cyan:hsl(179,100%,13%);
+    --transparent-white:hsl(0,0%,100%,0.75);   /*paragraphs*/
+    --very-light-grey:hsl(0,0%,95%);   /*background,headings,buttons*/
+}
+
+
+body{
+    font-family: "Lexend Deca","Big Shoulders Display",serif;
+    background-color: var(--very-light-grey);
+    display: flex;
+}
+
+.container{
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: row wrap;
+    width: 80%;
+    margin: 4rem auto;
+}
+
+.card{
+    flex-basis: 10rem;
+    padding: 2rem;
+    line-height: 150%;
+
+    display: flex;
+    flex-direction: column;
+     
+}
+
+h2{
+    text-transform: uppercase;
+    color: var(--very-light-grey);
+}
+
+p{
+    color: var(--transparent-white);
+    margin-bottom: 5rem;
+}
+
+a{
+    margin-top: auto;
+    text-transform: capitalize;
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+    background-color: var(--very-light-grey);
+    padding: .4rem 1.2rem;
+    border-radius: 2.4rem;
+    border: solid .18rem var(--very-light-grey);
+}
+
+a:hover{
+    color:var(--very-light-grey) ;
+    background-color: inherit;
+}
+
+.sedans{
+    background-color: var(--bright-orange);
+    color: var(--bright-orange);
+    border-radius: .3rem 0 0 .3rem;
+    opacity: 0;
+    position: relative;
+    animation-name: sedans-rotate-in;
+    animation-delay: .5s;
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes sedans-rotate-in{
+    0%{opacity: 0;transform:perspective(100rem) rotateY(60deg);}
+    100%{opacity: 1;transform:perspective(100rem) rotateY(0deg)}
+}
+.suv{
+    background-color: var(--dark-cyan);
+    color: var(--dark-cyan);
+    position: relative;
+    animation-name: suv-move-in;
+    animation-duration: 1s;
+}
+
+@keyframes suv-move-in{
+    from{transform: translateY(-100vh);}
+    to{transform: translateY(initial);}
+}
+
+.luxury{
+    background-color: var(--very-dark-cyan);
+    color: var(--very-dark-cyan);
+    border-radius: 0 .3rem .3rem 0;
+    opacity: 0;
+    animation-delay: .8s;
+    animation-name: luxury-rotate-in;
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
+}
+@keyframes luxury-rotate-in{
+    0%{opacity: 0;transform:perspective(100rem) rotateY(-60deg);}
+    100%{opacity: 1;transform:perspective(100rem) rotateY(0deg)}
+}
+
+/* make sure the opacity doesn't change to zero when hovered */
+.card:hover{
+    opacity: 1;
+    animation-fill-mode: none;
+}
